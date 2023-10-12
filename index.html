@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Burscheid</title>
+    <meta
+      property="og:description"
+      content="Drag the marker to a new location on a map and populate its coordinates in a display."
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row window">
+        <div class="col-3">
+          <div class="menu">
+            <div id="title" class="row">
+              <h3 id="name" class="text">Hitzeaktionsplan Burscheid</h3>
+            </div>
+            <div class="infoContainer">
+              <p id="intro">
+                <b>Gestalten Sie den Hitzeaktionsplan mit uns! </b>
+                <br><br>Wir freuen uns, Sie zur Teilnahme an dieser Initiative einladen zu können, die darauf abzielt 
+                Burscheid angesichts steigender Temperaturen und extremer Hitzeereignisse widerstandsfähiger zu machen.
+                Ihre Stimme ist bei diesem Unterfangen von entscheidender Bedeutung, und wir möchten Sie in den Prozess der 
+                Sammlung wertvoller Informationen einbeziehen.
+                <br><br>
+                <b>Wenn Sie sich beteiligen möchten, klicken Sie bitte auf die Schaltfläche "STARTEN".</b>
+              </p>
+            </div>
+            <img id="icon"></img>
+            
+          </div>
+          <div class="footer"> 
+            <button type="button" class="btn-primary">STARTEN</button>
+            <div id="images">
+              <img src="./logoB.png" class="image" />
+              <img src="./logo.png" class="image" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-9 p-0">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
+  </body>
+</html>
