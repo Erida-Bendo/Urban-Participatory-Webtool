@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Burscheid</title>
+    <meta
+      property="og:description"
+      content="Drag the marker to a new location on a map and populate its coordinates in a display."
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row window">
+        <div class="col-3">
+          <div class="menu">
+            <div id="title" class="row">
+              <h3 id="name" class="text">Hitzeaktionsplan Burscheid</h3>
+            </div>
+            <div class="infoContainer">
+              <p id="intro">
+                <b>Gestalten Sie den Hitzeaktionsplan mit uns! </b>
+                <br><br>Der Fragebogen besteht aus 9 Schritten. <br>
+                <br>In jedem der Schritte werden wir eine vorgeschlagene Maßnahme und eine begrenzte Anzahl von Markierungen zur Verfügung stellen.<br>
+                <br>Bitte verschieben Sie die Markierungen an die Stellen, an denen sie denken dass die Maßnahme am dringendsten benötigt wird. 
+                <br>Wenn Sie an einem Schritt nicht teilnehmen möchten, können Sie einfach zum nächsten Schritt übergehen.
+                <br><br><b>
+                Die vorgeschlagenen Maßnahmen sind die folgenden:</b>
+                  <br><br><i>Trinkstellen, Brunnen, Vernebelungsanlagen, öffentliche Toiletten, Bänke, Rampen, Bäume und Spielplätze </i>
+                  <br><br><b>Klicken Sie auf der Schaltfläche unten um zu starten.</b>
+              </p>
+            </div>
+            <img id="icon"></img>
+            
+          </div>
+          <div class="footer"> 
+            <button type="button" class="btn-primary">STARTEN</button>
+            <div id="images">
+              <img src="./logoB.png" class="image" />
+              <img src="./logo.png" class="image" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-9 p-0">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
+  </body>
+</html>

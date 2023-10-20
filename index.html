@@ -1,58 +1,112 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Burscheid</title>
-    <meta
-      property="og:description"
-      content="Drag the marker to a new location on a map and populate its coordinates in a display."
-    />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css"
-    />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
-    <style></style>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="row window">
-        <div class="col-3">
-          <div class="menu">
-            <div id="title" class="row">
-              <h3 id="name" class="text">Hitzeaktionsplan Burscheid</h3>
-            </div>
-            <div class="infoContainer">
-              <p id="intro">
-                <b>Gestalten Sie den Hitzeaktionsplan mit uns! </b>
-                <br><br>Wir freuen uns, Sie zur Teilnahme an dieser Initiative einladen zu können, die darauf abzielt 
-                Burscheid angesichts steigender Temperaturen und extremer Hitzeereignisse widerstandsfähiger zu machen.
-                Ihre Stimme ist bei diesem Unterfangen von entscheidender Bedeutung, und wir möchten Sie in den Prozess der 
-                Sammlung wertvoller Informationen einbeziehen.
-                <br><br>
-                <b>Wenn Sie sich beteiligen möchten, klicken Sie bitte auf die Schaltfläche "STARTEN".</b>
-              </p>
-            </div>
-            <img id="icon"></img>
-            
-          </div>
-          <div class="footer"> 
-            <button type="button" class="btn-primary">STARTEN</button>
-            <div id="images">
-              <img src="./logoB.png" class="image" />
-              <img src="./logo.png" class="image" />
-            </div>
-          </div>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitzeaktionsplan Burscheid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('LST.png'); /* Specify the URL of your background image */
+            opacity: 95%;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-        <div class="col-9 p-0">
-          <div id="map"></div>
-        </div>
-      </div>
+        .container {
+            text-align: center;
+            background-color: #f5f8d5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 700px;
+            margin-top: 1%;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color:  #C4D600;
+            color: #000000;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            z-index: 3;
+        }
+
+        .cta-button:hover{
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 160px; /* Adjust the width as needed */
+            margin: 10px; /* Add spacing between logos */
+        }
+        .logo2 {
+            width: 80px; /* Adjust the width as needed */
+            margin: 10px; /* Add spacing between logos */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestalten Sie den Hitzeaktionsplan von Burscheid mit uns!</h1>
+        <p>Die Auswirkungen des Klimawandels machen sich in unseren Städten zunehmend offensichtlicher bemerkbar.</p>
+        <p>Hohe Temperaturen und ausgedehnte Hitzewellen haben einen erheblichen Einfluss auf die Lebensqualität in urbanen Gebieten und stellen insbesondere für Kinder und ältere Bevölkerungsgruppen ein bedeutendes Gesundheitsrisiko dar.</p>
+        <p><i>Ein Hitzeaktionsplan ist ein Dokument, das Strategien beinhaltet, die darauf abzielen, die gesundheitlichen Auswirkungen von Hitzewellen entgegenzuwirken oder zumindest zu reduzieren.</i></p>
+        <p>Wir freuen uns, Sie zur Teilnahme an dieser Initiative einladen zu können. </p>
+        <p>Wir haben die klimatische Situation in Burscheid bereits analysiert und mehrere Maßnahmen zur Verbesserung der Situation festgelegt. </p>
+        <p><b>Wir bitten Sie um Ihre Hilfe, um die Platzierung dieser Maßnahmen besser definieren zu können. Wenn Sie sich an diesem Formular beteiligen möchten, dann klicken Sie bitte auf die Schaltfläche unten.</b></p>
+
+        <a href="steps.html" class="cta-button">Ich mach mit</a>
     </div>
 
-    <script src="bundle.js"></script>
-  </body>
+    <footer>
+        <img src="logoB.png" alt="Logo 2" class="logo2">
+        <img src="logo.png" alt="Logo 1" class="logo">
+        <!-- Add more logo images as needed -->
+    </footer>
+</body>
 </html>
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
