@@ -194,7 +194,6 @@ function func10(){
         input2.remove();
         input3.remove();
         console.log(ageInput.value);
-        console.log(genderInput.value);
         console.log(commentInput.value);
     };
 
