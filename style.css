@@ -1,8 +1,8 @@
 @import "/node_modules/bootstrap/dist/css/bootstrap.css";
 #icon{
-    height: 11rem;
+    height: 150px;
     position: relative;
-    margin-left: 70px;
+    margin-left: 100px;
     align-items: center;
 }
 body { margin: 0; padding: 0; }
@@ -22,7 +22,7 @@ html, body, #map { height: 100%; width:100%}
     margin: 5%;
 }
 
-.col-3 {
+.col-4 {
 background-color: #f5f8d5;
 }
 
@@ -34,6 +34,12 @@ background-color: #f5f8d5;
 .infoContainer{
     overflow: auto;
     height: 450px;
+    text-align: justify;
+}
+
+.form{
+    overflow: auto;
+    height: 200px;
     text-align: justify;
 }
 
@@ -72,7 +78,7 @@ background-color: #f5f8d5;
 }
 
 .footer{
-    width: 23%;
+    width: 30%;
     position: absolute;
     bottom: 0%;
 }
@@ -91,4 +97,54 @@ background-color: #f5f8d5;
 #extra{
     width: 100%;
 }
+.form{
+    border-color: #C4D600;;
+}
 
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-checkbox input {
+    display: none; /* Hide the default checkbox */
+}
+
+.custom-checkbox .icon {
+    height: 50px;
+    margin-right: 30px;
+}
+
+.custom-checkbox .text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Vertically align the text */
+    margin-top: 15px;
+}
+
+.custom-checkbox .checkbox-label {
+    position: relative;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.custom-checkbox .checkbox-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #C4D600;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.custom-checkbox input:checked + .checkbox-label:before {
+    background-color: #C4D600;
+    border-color: #C4D600;
+}
