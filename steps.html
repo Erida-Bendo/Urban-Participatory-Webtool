@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Burscheid</title>
+    <title>Online Beteiligung</title>
     <meta
       property="og:description"
       content="Drag the marker to a new location on a map and populate its coordinates in a display."
@@ -17,139 +17,133 @@
     <style></style>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row window">
-        <div class="col-4">
-          <div class="menu">
-            <div id="title" class="row">
-              <h3 id="name" class="text">Hitzeaktionsplan Burscheid</h3>
-            </div>
-            <div class="infoContainer">
-              <p id="analysis">
-                  <b>Durch unsere Analyse haben wir Bereiche identifiziert, die in Burscheid ein höheres Hitzerisiko aufweisen.</b><br><br>
-                  Als Grundlage für diese Analyse wurden die Oberflächentemperaturen, welche anhand von Satellitenbildern berechnet wurden, benutzt.<br><br>
-                  <i>In der Karte auf der rechten Seite sehen Sie Gebiete mit hohem Hitzerisiko in Rot und die Gebiete mit geringem Hitzerisiko in Grau eingefärbt.</i>
-                  <br><br>Klicken Sie auf die Schaltfläche <i>'STARTEN'</i>, um zum nächsten Schritt zu gelangen.
-                </p>
-              </p>
-              <p id="intro" style="display: none;">
-                <b>Gestalten Sie den Hitzeaktionsplan mit uns! </b>
-                <br>
-                  Wir haben die folgenden Maßnahmen identifiziert, die den Hitzestress in Burscheid abmildern können:</b>
-                  <br><br><i>Trinkstellen, Fontänen, Vernebelungsanlagen, öffentliche Toiletten, Sitzbänke, Rampen für die allgemeine Erreichbarkeit, Bäume und beschattete Spielplätze </i>
-                  <br><br><b>Welche dieser Maßnahmen ist für Sie am wichtigsten? </b>
-                  <br>Wählen Sie 3 aus der folgenden Liste aus. 
-              </p>
-              <div id="firstForm" style="display: none;">
-                <form id="elementForm">
-                  <table>
-                      <tr>
-                          <td>
-                              <label class="custom-checkbox" for="0">
-                                <img src="icons/drinking.png" alt="Icon 1" class="icon">
-                                <span class="text">Trinkstellen</span>
-                                <input type="checkbox" id="0" name="selectedElements" value="0">
-                                <span class="checkbox-label"></span>
-                              </label>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <label class="custom-checkbox" for="1">
-                                <img src="icons/fountain.png" alt="Icon 2" class="icon">
-                                <span class="text">Fontänen</span>
-                                <input type="checkbox" id="1" name="selectedElements" value="1">
-                                <span class="checkbox-label"></span>
-                              </label>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <label class="custom-checkbox" for="2">
-                                <img src="icons/misting.png" alt="Icon 3" class="icon">
-                                <span class="text">Vernebelungsanlagen</span>
-                                <input type="checkbox" id="2" name="selectedElements" value="2">
-                                <span class="checkbox-label"></span>
-                              </label>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <label class="custom-checkbox" for="3">
-                                <img src="icons/restroom.png" alt="Icon 4" class="icon">
-                                <span class="text">Öffentliche Toiletten</span>
-                                <input type="checkbox" id="3" name="selectedElements" value="3">
-                                <span class="checkbox-label"></span>
-                              </label>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <label class="custom-checkbox" for="4">
-                                <img src="icons/benches.png" alt="Icon 5" class="icon">
-                                <span class="text">Sitzbänke</span>
-                                <input type="checkbox" id="4" name="selectedElements" value="4">
-                                <span class="checkbox-label"></span>
-                              </label>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <label class="custom-checkbox" for="5">
-                                <img src="icons/accessibility.png" alt="Icon 6" class="icon">
-                                <span class="text">Barrierefreiheit</span>
-                                <input type="checkbox" id="5" name="selectedElements" value="5">
-                                <span class="checkbox-label"></span>
-                              </label>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <label class="custom-checkbox" for="6">
-                                <img src="icons/Trees.png" alt="Icon 7" class="icon">
-                                <span class="text">Bäume</span>
-                                <input type="checkbox" id="6" name="selectedElements" value="6">
-                                <span class="checkbox-label"></span>
-                              </label>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <label class="custom-checkbox" for="7">
-                                <img src="icons/playground.png" alt="Icon 8" class="icon">
-                                <span class="text">Beschattete Spielplätze</span>
-                                <input type="checkbox" id="7" name="selectedElements" value="7">
-                                <span class="checkbox-label"></span>
-                              </label>
-                          </td>
-                      </tr>
-                  </table>
-                </form>
-                <p>
-                  Klicken Sie auf die Schaltfläche, um zum nächsten Schritt zu gelangen, bei welchem Sie die Möglichkeit haben, 
-                  die Maßnahmen dort zu platzieren, wo sie Ihrer Meinung nach am nötigsten sind.
-                </p>
+    <div>
+      <div id="map"></div>
+    </div>
+    <div class="top">
+    <div class="title">
+      <h3>Online Beteiligung Platform</h3>
+    </div>
+    <div id="images">
+      <img src="icons/logo.png" class="image" />
+    </div>
+    </div>
+    <div class="infoContainer">
+      
+      <div class="menu">
+        <div>
+          <p id="analysis">
+              <b>Je nach Projektumfang werden an dieser Stelle das Ziel und die Methodik der Umfrage erläutert.</b><br><br>
+              Datenschutz ist gewährleistet! Es erfolgt keine Erfassung von IP-Informationen oder persönlichen Nutzerdaten. Wir sammeln ausschließlich Umfrageantworten, ohne persönliche Informationen zu speichern.
+              <br><br>Klicken Sie auf die Schaltfläche <i>'STARTEN'</i>, um zum nächsten Schritt zu gelangen.<br>
+            </p>
+          </p>
+          <button type="button" id="button"  class="btn-primary">STARTEN</button>
+          <p id="intro" style="display: none;">
+            <b>Gestalten Sie mit uns! </b>
+            <br>
+            In diesem Teil der Umfrage können die Nutzer die vorgeschlagenen Maßnahmen auswählen und in den nächsten Schritten in der Karte verorten.</b>
+              Beispielhafte Maßnahmen können Trinkstellen, Fontänen, öffentliche Toiletten, Sitzbänke, Rampen für die allgemeine Erreichbarkeit, Bäume und beschattete Spielplätze sein.
+              <br><br><b>Welche dieser Maßnahmen ist für Sie am wichtigsten? </b>
+              <br>Wählen Sie 3 aus der folgenden Liste aus. 
+          </p>
+          <div id="firstForm" style="display: none;">
+            <form id="elementForm">
+              <table>
+                  <tr>
+                      <td>
+                          <label class="custom-checkbox" for="0">
+                            <img src="icons/drinking.png" alt="Icon 1" class="icon">
+                            <span class="text">Trinkstellen</span>
+                            <input type="checkbox" id="0" name="selectedElements" value="0">
+                            <span class="checkbox-label"></span>
+                          </label>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label class="custom-checkbox" for="1">
+                            <img src="icons/fountain.png" alt="Icon 2" class="icon">
+                            <span class="text">Fontänen</span>
+                            <input type="checkbox" id="1" name="selectedElements" value="1">
+                            <span class="checkbox-label"></span>
+                          </label>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label class="custom-checkbox" for="2">
+                            <img src="icons/misting.png" alt="Icon 3" class="icon">
+                            <span class="text">Vernebelungsanlagen</span>
+                            <input type="checkbox" id="2" name="selectedElements" value="2">
+                            <span class="checkbox-label"></span>
+                          </label>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label class="custom-checkbox" for="3">
+                            <img src="icons/restroom.png" alt="Icon 4" class="icon">
+                            <span class="text">Öffentliche Toiletten</span>
+                            <input type="checkbox" id="3" name="selectedElements" value="3">
+                            <span class="checkbox-label"></span>
+                          </label>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label class="custom-checkbox" for="4">
+                            <img src="icons/benches.png" alt="Icon 5" class="icon">
+                            <span class="text">Sitzbänke</span>
+                            <input type="checkbox" id="4" name="selectedElements" value="4">
+                            <span class="checkbox-label"></span>
+                          </label>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label class="custom-checkbox" for="5">
+                            <img src="icons/accessibility.png" alt="Icon 6" class="icon">
+                            <span class="text">Barrierefreiheit</span>
+                            <input type="checkbox" id="5" name="selectedElements" value="5">
+                            <span class="checkbox-label"></span>
+                          </label>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label class="custom-checkbox" for="6">
+                            <img src="icons/Trees.png" alt="Icon 7" class="icon">
+                            <span class="text">Bäume</span>
+                            <input type="checkbox" id="6" name="selectedElements" value="6">
+                            <span class="checkbox-label"></span>
+                          </label>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label class="custom-checkbox" for="7">
+                            <img src="icons/playground.png" alt="Icon 8" class="icon">
+                            <span class="text">Beschattete Spielplätze</span>
+                            <input type="checkbox" id="7" name="selectedElements" value="7">
+                            <span class="checkbox-label"></span>
+                          </label>
+                      </td>
+                  </tr>
+              </table>
+            </form>
+            <p>
+              <br>Klicken Sie auf die Schaltfläche, um zum nächsten Schritt zu gelangen, bei welchem Sie die Möglichkeit haben, 
+              die Maßnahmen dort zu platzieren, wo sie Ihrer Meinung nach am nötigsten sind.
+            </p>        
           </div>
-          
-            </div>
-            
-            <img id="icon"></img>
-            
-          </div>
-          <div class="footer"> 
-            <button type="button" class="btn-primary">STARTEN</button>
-            <div id="images">
-              <img src="./logoB.png" class="image" />
-              <img src="./logo.png" class="image" />
-            </div>
-          </div>
-        </div>
-
-        <div class="col-8 p-0">
-          <div id="map"></div>
-        </div>
+          <button type="button" id="button" class="btn-sec">Zur Verortung der Maßnahmen</button>
+         </div>
       </div>
     </div>
+
+    
+
 
     <script src="bundle.js"></script>
   </body>

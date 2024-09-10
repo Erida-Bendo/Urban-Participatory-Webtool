@@ -1,15 +1,32 @@
 @import "/node_modules/bootstrap/dist/css/bootstrap.css";
+
+footer {
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 #icon{
+    height: 10%;
+    position: relative;
+    margin-left: 100px;
+    align-items: center;
+}
+#logo{
     height: 150px;
     position: relative;
     margin-left: 100px;
     align-items: center;
 }
-body { margin: 0; padding: 0; }
-html, body, #map { height: 100%; width:100%}
+body { margin: 0; padding: 0; position: relative;}
+html, body, #map { height: 100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 .container{
     margin: 0;
     padding: 0;
+    
 }
 .window{
     position: absolute;
@@ -18,51 +35,68 @@ html, body, #map { height: 100%; width:100%}
     z-index: 3;
 }
 
-.menu{
-    margin: 5%;
-}
-
-.col-4 {
-background-color: #f5f8d5;
-}
-
-
-.text{
-    margin-bottom: 15%
+#map{
+    position: absolute;
+    height: 100%;
 }
 
 .infoContainer{
-    overflow: auto;
-    height: 450px;
-    text-align: justify;
+    opacity: 85%;
+    background-color: #ffffff;
+    border-color:#C4D600;
+    border-style: solid;
+    color: rgb(67, 66, 66);
+    position: absolute;
+    border-radius: 10px;
+    width: auto;
+    justify-content: center;
+    bottom: 0px;
+    overflow:auto;
+    max-height:40%;
+    height: auto;
+    margin: 1%;
+    padding: 1%;
+    font-size: large;
+    
 }
+
+.top{
+    position: absolute;
+    width: auto;
+    top: 0px;
+    overflow:auto;
+    height: auto;
+}
+.title{
+    opacity: 90%;
+    border-color:#C4D600;
+    border-style: solid;
+    background-color: #ffffff;
+    color: rgb(67, 66, 66);
+    border-radius: 10px;
+    margin: 2%;
+    padding: 5%;
+}
+.menu{
+    bottom: 0%;
+    margin: 1%;
+}
+
 
 .form{
     overflow: auto;
     height: 200px;
     text-align: justify;
 }
+.btn-sec{
+    display: none;
+}
 
-.btn-primary{
-    margin-top: 15%;
-    width: 80%;
-    height: 40px;
-    margin-left: 10%;
-    margin-right: 5%;
-    background-color:  #C4D600;
-    z-index: 3;
-    border: none;
-    border-radius: 0.6em;
-}
-.btn-primary:hover{
-    color: white;
-}
 
 #button{
-    margin-top: 10%;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 5%;
+    margin-top: 3%;
+    width: auto;
+    min-width: 30%;
     background-color:  #C4D600;
     z-index: 3;
     border:none;
@@ -86,11 +120,9 @@ background-color: #f5f8d5;
 
 #images{
     margin-top: 5%;
-    display: flex;
-    justify-content: center;
 }
 .image{
-    height: 30px;
+    height: 2rem;
     margin-bottom: 20px;
 }
 

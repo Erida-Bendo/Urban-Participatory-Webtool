@@ -1,82 +1,29 @@
 document.getElementById('coordinates');
-const map = new maplibregl.Map({
+var map = new maplibregl.Map({
     container: 'map',
     style:
     'https://api.maptiler.com/maps/basic/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
     center: [7.1138, 51.0837],
-    zoom: 14
+    zoom: 6
 });
-
-map.on('load', function () {
-    // URL to your GeoJSON file
-    const geojsonURL = 'test2.geojson';
-    const geojson2 = 'holeyBurscheid.geojson';
-
-    // Fetch the MultiPolygon GeoJSON data from the file
-    fetch(geojsonURL)
-        .then((response) => response.json())
-        .then((data) => {
-            // Add a GeoJSON source to the map using the fetched data
-            map.addSource('multipolygon-source', {
-                type: 'geojson',
-                data: data
-            });
-
-            // Add a layer to display the MultiPolygon data
-            map.addLayer({
-                id: 'multipolygon-layer',
-                type: 'fill',
-                source: 'multipolygon-source',
-                paint: {
-                    'fill-color': 'red',
-                    'fill-opacity': 0.2   
-                }
-            });
-        })
-        .catch((error) => {
-            console.error('Error loading MultiPolygon GeoJSON:', error);
-        });
-
-    fetch(geojson2)
-        .then((response) => response.json())
-        .then((data) => {
-            // Add a GeoJSON source to the map using the fetched data
-            map.addSource('2', {
-                type: 'geojson',
-                data: data
-            });
-
-            // Add a layer to display the MultiPolygon data
-            map.addLayer({
-                id: '2',
-                type: 'fill',
-                source: '2',
-                paint: {
-                    'fill-color': 'lightgrey',
-                    'fill-opacity': 0.4   
-                }
-            });
-        })
-        .catch((error) => {
-            console.error('Error loading MultiPolygon GeoJSON:', error);
-        });
-
-});
-
-
+/*
 map.setMinZoom(12);
+*/
+
+
 
 var markers=[];
 const button = document.getElementsByClassName("btn-primary")[0];
-
+const buttonSec = document.getElementsByClassName("btn-sec")[0];
+buttonSec.setAttribute('disabled', 'disabled');
 const intro = document.getElementById("intro");
 const info = document.getElementsByClassName("infoContainer")[0];
-const logo=document.getElementById("icon");
+const logo = document.getElementById("icon");
 const analysis = document.getElementById("analysis");
 
 function createMarkers(num, col){
-    a=7.101182888795705;
-    b=51.09206993491347;
+    a=13.39060554069133;
+    b=52.515834691380086;
     for (let i = 0; i < num; i++) {
         const marker = new maplibregl.Marker({draggable: true, color:col})
         .setLngLat([a, b])
@@ -100,8 +47,24 @@ function getMarkerCoordinates(type){
 
 }
 function addLogo(string){
-    const logo=document.getElementById("icon");
+    const logo=document.getElementById("logo");
     logo.src=string;
+}
+
+function createOptions(array, id = "") {
+    var selectElement = document.createElement("select");
+    selectElement.id = "fruitSelect";
+    selectElement.name = "fruits";
+
+    // Create and append option elements based on the array
+    for (var i = 0; i < array.length; i++) {
+        var optionElement = document.createElement("option");
+        optionElement.value = array[i].toLowerCase();
+        optionElement.innerHTML = array[i];
+        optionElement.id = id;
+        selectElement.appendChild(optionElement);
+    }
+    return selectElement;
 }
 
 
@@ -122,9 +85,9 @@ checkboxes.forEach(checkbox => {
         }
 
         if (selectedCount === 3) {
-            button.removeAttribute('disabled');
+            buttonSec.removeAttribute('disabled');
         } else {
-            button.setAttribute('disabled', 'disabled');
+            buttonSec.setAttribute('disabled', 'disabled');
         }
     });
 });
@@ -137,27 +100,27 @@ const selectedElements = [];
 
 const functionsArray=[
     function(){
-        intro.innerHTML = intro.textContent.trim();
-        info.style.height="20%";
-        intro.innerHTML = "<b>Bei Hitzewellen ist es wichtig, Trinkplätze anzubieten.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Trinkplätzen in Burscheid?<br><br><b>Verschieben Sie die 5 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
+        intro.innerHTML = intro.textContent.trim()
+        info.scrollTop=0;
+        intro.innerHTML = "<b>Bei Hitzewellen ist es wichtig, Trinkplätze anzubieten.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Trinkplätzen?<br><br><b>Verschieben Sie die 5 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
-        addLogo("/icons/drinking.png");
+        addLogo("./icons/drinking.png");
         createMarkers(5, "#AED6F1");
     },
     function(){
        removeMarkers();
         intro.innerHTML = intro.textContent.trim();
-        info.style.height="20%";
-        intro.innerHTML = "<b>Fontänen können den Komfort im Freien durch Verdunstungskühlung verbessern.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Fontänen in Burscheid?<br><br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
+        info.scrollTop=0;
+        intro.innerHTML = "<b>Fontänen können den Komfort im Freien durch Verdunstungskühlung verbessern.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Fontänen?<br><br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
-        addLogo("/icons/fountain.png");
+        addLogo("./icons/fountain.png");
         createMarkers(4,"#17A589");
     },
     function(){
        removeMarkers();
         intro.innerHTML = intro.textContent.trim();
-        info.style.height="20%";
-        intro.innerHTML = "<b>Vernebelungsanlagen sind eine Strategie zur Bekämpfung von Hitzestress, insbesondere dort, wo sich viele Menschen zusammenkommen oder vorbeigehen.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Vernebelungsanlagen in Burscheid ?<br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
+        info.scrollTop=0;
+        intro.innerHTML = "<b>Vernebelungsanlagen sind eine Strategie zur Bekämpfung von Hitzestress, insbesondere dort, wo sich viele Menschen zusammenkommen oder vorbeigehen.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Vernebelungsanlagen?<br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
         addLogo("/icons/misting.png");
         createMarkers(4, "#1A5276");
@@ -165,8 +128,8 @@ const functionsArray=[
     function(){
       removeMarkers();
         intro.innerHTML = intro.textContent.trim();
-        info.style.height="20%";
-        intro.innerHTML = "<b>Öffentliche Toiletten ermöglichen freie Bewegung in öffentlichen Räumen.</b><br>Wo gibt es Ihrer Meinung nach einen Bedarf an öffentlichen Toiletten in Burscheid?<br><br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
+        info.scrollTop=0;
+        intro.innerHTML = "<b>Öffentliche Toiletten ermöglichen freie Bewegung in öffentlichen Räumen.</b><br>Wo gibt es Ihrer Meinung nach einen Bedarf an öffentlichen Toiletten?<br><br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
         addLogo("/icons/restroom.png");
         createMarkers(4, "#212F3D");
@@ -174,8 +137,8 @@ const functionsArray=[
     function(){
        removeMarkers();
         intro.innerHTML = intro.textContent.trim();
-        info.style.height="20%";
-        intro.innerHTML = "<b>Sitzbänke unterstützten gesunde Alltagsroutinen.</b><br> Wo werden Ihrer Meinung nach Sitzbänke am meisten gebraucht?<br><br><b>Verschieben Sie die 10 Markierungen in der Karte an die gewünschten Stellen.. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
+        info.scrollTop=0;
+        intro.innerHTML = "<b>Sitzbänke unterstützten gesunde Alltagsroutinen.</b><br> Wo werden Ihrer Meinung nach Sitzbänke am meisten gebraucht?<br><br><b>Verschieben Sie die 10 Markierungen in der Karte an die gewünschten Stellen.Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
         addLogo("/icons/benches.png");
         createMarkers(10, "#F5CBA7");
@@ -183,22 +146,22 @@ const functionsArray=[
     function(){
         removeMarkers();
         intro.innerHTML = intro.textContent.trim();
-        info.style.height="20%";
-        intro.innerHTML = "<b>Das Straßennetz und die hügelige Landschaft erschweren das Gehen zu Fuß. Bei Hitzewellen erhöht sich dadurch das Auftreten von Hitzeanfällen. </b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Rampen in Burscheid?<br><br><b>Verschieben Sie die 5 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen. ";
+        info.scrollTop=0;
+        intro.innerHTML = "<b>Das Straßennetz und die hügelige Landschaft erschweren das Gehen zu Fuß. Bei Hitzewellen erhöht sich dadurch das Auftreten von Hitzeanfällen. </b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Rampen?<br><br><b>Verschieben Sie die 5 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen. ";
         button.innerHTML="Zum nächsten Schritt";
         addLogo("/icons/accessibility.png");
         createMarkers(5, "#EC7063");
     },
     function(){
         removeMarkers();
-        info.style.height="20%";
+        info.scrollTop=0;
         intro.innerHTML = "<b>Die Anpflanzung von Bäumen sind die beste Beschattungsstrategie, die auch Verdunstungskälte bietet.</b><br>Wo werden Ihrer Meinung nach Bäume in der Stadt am meisten gebraucht? <br><br><b>Verschieben Sie die 15 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         addLogo("/icons/Trees.png");
         createMarkers(15, "#229954");
     },
     function(){
         removeMarkers();
-        info.style.height="20%";
+        info.scrollTop=0;
         intro.innerHTML = "<b>Spielplätze sind ein wichtiges Umfeld für Kinder und junge Familien.</b><br> Wo werden Ihrer Meinung nach beschattete Spielplätze am meisten gebraucht? <br><br><b>Verschieben Sie die 5 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         addLogo("/icons/playground.png");
         createMarkers(5, "#F4D03F");
@@ -208,12 +171,13 @@ function func2() { }
 function func3() { }
 
 function func4(){
-    
-    logo.remove();
+    info.scrollTop=0;
+    image = document.getElementById("logo");
+    image.remove();
     getMarkerCoordinates(selectedElements[2]);
     removeMarkers();
     intro.innerHTML = "Danke für Ihre Teilnahme. Optional können Sie gerne einen Kommentar hinterlassen.";
-    button.remove();
+    buttonSec.remove();
 
     input1=document.createElement("div");
     input1.id="inputs";
@@ -251,18 +215,8 @@ function func4(){
     endButton.textContent = "Einreichen";
     endButton.id= "button";
     endButton.onclick = () =>{
-        intro.innerHTML = "Danke für Ihre Teilnahme. <br> <br><b>Ihre Daten wurden gesammelt.<b/> <br><br><br><br><i>Unter den folgenden Link können Sie mehr über Hitzeschutz und Hitzevorsorge in Deutschland lesen.<i/><br/>";
+        intro.innerHTML = "Danke für Ihre Teilnahme.";
         
-        var link = document.createElement("a");
-
-        // Set the href attribute to specify the URL
-        link.href = "https://www.staedtetag.de/themen/klimaschutz-und-energie/hitzeschutz-hitzevorsorge-staedte";
-
-        // Set the text content for the link
-        link.textContent = "Hitzeschutz und Hitzevorsorge in den Städten";
-        intro.appendChild(link);
-
-
         endButton.remove();
         input1.remove();
         input2.remove();
@@ -274,17 +228,81 @@ function func4(){
     info.appendChild(endButton);
 }
 function func(){
-    
-    analysis.style.display="none";
-    intro.style.display="block";
-    divForm.style.display="block";
+    info.scrollTop=0;
+    map = new maplibregl.Map({
+        container: 'map',
+        style:
+        'https://api.maptiler.com/maps/basic/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+        center: [13.39060554069133, 52.515834691380086],
+        zoom: 14
+    });
+
+    const geojsonURL = './resources/testArea.geojson';
+
+    // Fetch the MultiPolygon GeoJSON data from the file
+    fetch(geojsonURL)
+        .then((response) => response.json())
+        .then((data) => {
+            // Add a GeoJSON source to the map using the fetched data
+            map.addSource('multipolygon-source', {
+                type: 'geojson',
+                data: data
+            });
+
+            // Add a layer to display the MultiPolygon data
+            map.addLayer({
+                id: 'multipolygon-layer',
+                type: 'fill',
+                source: 'multipolygon-source',
+                paint: {
+                    'fill-color': 'red',
+                    'fill-opacity': 0.2   
+                }
+            });
+        })
+        .catch((error) => {
+            console.error('Error loading MultiPolygon GeoJSON:', error);
+        });
+
+    analysis.innerHTML = "<b>Dieser Teil der Umfrage dient dazu, die allgemeine Meinung der Einwohner über den Standort und den Projektvorschlag je nach Projektthema zu ermitteln.<br>\
+                            Der Standortbereich kann in der Karte dargestellt werden (in diesem Fall, rot markiert).\
+                            <br>Nachfolgend finden Sie einige Beispielfragen aus einem früheren Projekt:<br><br></b>\
+                            Wie oft halten Sie sich in der Innenstadt auf?<br>";
+    Opt1 = createOptions(["täglich", "1- bis 2-mal wochentlich", "1- bis 2-mal im Monat", "seltener"]);
+    analysis.appendChild(Opt1); 
+    analysis.innerHTML+="<br>Wie empfinden Sie die Aufenthaltsqualität in der Innenstadt unter klimatischen Gesichtspunkten (z.B. Hitze und Wind) im Allgemeinen? Ich empfinde die Aufenthaltsqualität als:<br>"
+    Opt2 = createOptions(["sehr unangenehm", "unangenehm", "ich weiß nicht", "gut", "sehr gut"]);
+    analysis.appendChild(Opt2);
+    analysis.innerHTML+="<br>Wenn Sie die Innenstadt in den Sommermonaten besuchen empfinden Sie dann sogenannten Hitzestress (z.B. Kreislaufprobleme, Kopfschmerzen, Erschöpfung)? Ich empfinde:<br>" 
+    Opt3 = createOptions(["keinen Hitzestress", "wenig Hitzestress", "moderaten Hitzestress", "starken Hitzestress"]);
+    analysis.appendChild(Opt3); 
+
+    button.innerHTML="Zum nächsten Schritt"
+    button.removeEventListener('click', func);
+    button.addEventListener("click", e => {
+        info.scrollTop=0;
+        button.style.display="none";
+        buttonSec.style.display="block";
+        analysis.style.display="none";
+        intro.style.display="block";
+        divForm.style.display="block";
+     });
+     buttonSec.addEventListener('click', func1)
+}
+
+function funcO(){
+    info.scrollTop=0;
     button.setAttribute('disabled', 'disabled');
     button.removeEventListener('click', func);
     button.addEventListener('click', func1);
     button.innerHTML="Zum nächsten Schritt"
 }
 function func1(){
-   
+    info.scrollTop=0;
+    var image = document.createElement("img");
+    image.id="logo";
+    info.appendChild(image)
+    buttonSec.innerHTML="Zur nächsten Maßnahme"
     
     const checkboxes = document.querySelectorAll('input[name="selectedElements"]');
 
@@ -306,11 +324,11 @@ function func1(){
         functionsArray[selectedElements[2]]();
     }
     functionsArray[selectedElements[0]]();
-    button.removeEventListener('click', func1);
+    buttonSec.removeEventListener('click', func1);
 
     const funcs = [func2, func3, func4];
     let i = 0;
-    button.addEventListener("click", e => {
+    buttonSec.addEventListener("click", e => {
         funcs[i]();
         i++;
         if (i >= funcs.length) i = 0;
