@@ -13,13 +13,13 @@ map.setMinZoom(12);
 
 
 var markers=[];
-const button = document.getElementsByClassName("btn-primary")[0];
-const buttonSec = document.getElementsByClassName("btn-sec")[0];
+var button = document.getElementsByClassName("btn-primary")[0];
+var buttonSec = document.getElementsByClassName("btn-sec")[0];
 buttonSec.setAttribute('disabled', 'disabled');
-const intro = document.getElementById("intro");
-const info = document.getElementsByClassName("infoContainer")[0];
-const logo = document.getElementById("icon");
-const analysis = document.getElementById("analysis");
+var intro = document.getElementById("intro");
+var info = document.getElementsByClassName("infoContainer")[0];
+var logo = document.getElementById("icon");
+var analysis = document.getElementById("analysis");
 
 function createMarkers(num, col){
     a=13.39060554069133;
