@@ -2,7 +2,7 @@ document.getElementById('coordinates');
 var map = new maplibregl.Map({
     container: 'map',
     style:
-    'https://api.maptiler.com/maps/basic/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+    'https://api.maptiler.com/maps/basic/style.json?key=vEKjKhtXsv7lTNHKwZro',
     center: [7.1138, 51.0837],
     zoom: 6
 });
