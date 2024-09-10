@@ -232,7 +232,7 @@ function func(){
     map = new maplibregl.Map({
         container: 'map',
         style:
-        'https://api.maptiler.com/maps/basic/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+        'https://api.maptiler.com/maps/basic/style.json?key=vEKjKhtXsv7lTNHKwZro',
         center: [13.39060554069133, 52.515834691380086],
         zoom: 14
     });
