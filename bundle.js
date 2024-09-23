@@ -116,7 +116,7 @@ const functionsArray=[
         info.scrollTop=0;
         intro.innerHTML = "<b>Bei Hitzewellen ist es wichtig, Trinkplätze anzubieten.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Trinkplätzen?<br><br><b>Verschieben Sie die 5 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
-        addLogo("./icons/drinking.png");
+        addLogo("icons/drinking.png");
         createMarkers(5, "#AED6F1");
     },
     function(){
@@ -125,7 +125,7 @@ const functionsArray=[
         info.scrollTop=0;
         intro.innerHTML = "<b>Fontänen können den Komfort im Freien durch Verdunstungskühlung verbessern.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Fontänen?<br><br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
-        addLogo("./icons/fountain.png");
+        addLogo("icons/fountain.png");
         createMarkers(4,"#17A589");
     },
     function(){
@@ -134,7 +134,7 @@ const functionsArray=[
         info.scrollTop=0;
         intro.innerHTML = "<b>Vernebelungsanlagen sind eine Strategie zur Bekämpfung von Hitzestress, insbesondere dort, wo sich viele Menschen zusammenkommen oder vorbeigehen.</b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Vernebelungsanlagen?<br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
-        addLogo("/icons/misting.png");
+        addLogo("icons/misting.png");
         createMarkers(4, "#1A5276");
     },
     function(){
@@ -143,7 +143,7 @@ const functionsArray=[
         info.scrollTop=0;
         intro.innerHTML = "<b>Öffentliche Toiletten ermöglichen freie Bewegung in öffentlichen Räumen.</b><br>Wo gibt es Ihrer Meinung nach einen Bedarf an öffentlichen Toiletten?<br><br><b>Verschieben Sie die 4 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
-        addLogo("/icons/restroom.png");
+        addLogo("icons/restroom.png");
         createMarkers(4, "#212F3D");
     },
     function(){
@@ -152,7 +152,7 @@ const functionsArray=[
         info.scrollTop=0;
         intro.innerHTML = "<b>Sitzbänke unterstützten gesunde Alltagsroutinen.</b><br> Wo werden Ihrer Meinung nach Sitzbänke am meisten gebraucht?<br><br><b>Verschieben Sie die 10 Markierungen in der Karte an die gewünschten Stellen.Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
         button.innerHTML="Zum nächsten Schritt";
-        addLogo("/icons/benches.png");
+        addLogo("icons/benches.png");
         createMarkers(10, "#F5CBA7");
     },
     function(){
@@ -161,21 +161,21 @@ const functionsArray=[
         info.scrollTop=0;
         intro.innerHTML = "<b>Das Straßennetz und die hügelige Landschaft erschweren das Gehen zu Fuß. Bei Hitzewellen erhöht sich dadurch das Auftreten von Hitzeanfällen. </b><br> Wo gibt es Ihrer Meinung nach einen Bedarf an Rampen?<br><br><b>Verschieben Sie die 5 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen. ";
         button.innerHTML="Zum nächsten Schritt";
-        addLogo("/icons/accessibility.png");
+        addLogo("icons/accessibility.png");
         createMarkers(5, "#EC7063");
     },
     function(){
         removeMarkers();
         info.scrollTop=0;
         intro.innerHTML = "<b>Die Anpflanzung von Bäumen sind die beste Beschattungsstrategie, die auch Verdunstungskälte bietet.</b><br>Wo werden Ihrer Meinung nach Bäume in der Stadt am meisten gebraucht? <br><br><b>Verschieben Sie die 15 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
-        addLogo("/icons/Trees.png");
+        addLogo("icons/Trees.png");
         createMarkers(15, "#229954");
     },
     function(){
         removeMarkers();
         info.scrollTop=0;
         intro.innerHTML = "<b>Spielplätze sind ein wichtiges Umfeld für Kinder und junge Familien.</b><br> Wo werden Ihrer Meinung nach beschattete Spielplätze am meisten gebraucht? <br><br><b>Verschieben Sie die 5 Markierungen in der Karte an die gewünschten Stellen. Danach klicken Sie auf die Schaltfläche unten, um zum nächsten Schritt zu gelangen.";
-        addLogo("/icons/playground.png");
+        addLogo("icons/playground.png");
         createMarkers(5, "#F4D03F");
     }
 ]
