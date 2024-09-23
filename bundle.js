@@ -1,3 +1,7 @@
+MapboxDraw.constants.classes.CONTROL_BASE  = 'maplibregl-ctrl';
+MapboxDraw.constants.classes.CONTROL_PREFIX = 'maplibregl-ctrl-';
+MapboxDraw.constants.classes.CONTROL_GROUP = 'maplibregl-ctrl-group';
+
 document.getElementById('coordinates');
 var map = new maplibregl.Map({
     container: 'map',
@@ -6,10 +10,18 @@ var map = new maplibregl.Map({
     center: [7.1138, 51.0837],
     zoom: 6
 });
+var draw = new MapboxDraw({
+    displayControlsDefault: false,
+    /*
+    controls: {
+        polygon: true,
+        trash: true
+    }*/
+});
+map.addControl(draw);
 /*
 map.setMinZoom(12);
 */
-
 
 
 var markers=[];
@@ -170,12 +182,119 @@ const functionsArray=[
 function func2() { }
 function func3() { }
 
+var drawnData=0
 function func4(){
+    
+    
     info.scrollTop=0;
+    map = new maplibregl.Map({
+        container: 'map',
+        style:
+        'https://api.maptiler.com/maps/basic/style.json?key=vEKjKhtXsv7lTNHKwZro',
+        center: [13.39060554069133, 52.515834691380086],
+        zoom: 14
+    });
+
+    buttonSec.innerHTML="Zum nächsten Schritt"
     image = document.getElementById("logo");
     image.remove();
     getMarkerCoordinates(selectedElements[2]);
     removeMarkers();
+    intro.innerHTML = "<b>Gestalten Sie mit uns! </b><br><br>\
+                        In diesem Teil der Umfrage haben die Nutzer die Möglichkeit in der Karte zu zeichnen.<br>\
+                         Sie können zum Beispiel Bereiche, die sie gerne in einer Stadt besuchen, den Weg zur Arbeit nachzeichnen oder Punkte in Orte platzieren, die sie für unsicher halten, die Möglichkeiten sind vielfältig.<br><br>";
+
+    draw = new MapboxDraw({
+        displayControlsDefault: false,
+        /*
+        controls: {
+            polygon: true,
+            trash: true
+        }*/
+    });
+    map.addControl(draw);
+
+    // track current mode so you can set active status on custom control buttons
+    let drawMode = draw.getMode();
+    map.on("draw.modechange", (e) => (drawMode = e.mode));
+
+    var polygonButton = document.createElement("button");
+    polygonButton.id="Draw";
+    polygonButton.innerText ="Polygon zeichnen";
+    var lineButton = document.createElement("button");
+    lineButton.id="Draw";
+    lineButton.innerText ="Linie zeichnen";
+    var pointButton = document.createElement("button");
+    pointButton.id="Draw";
+    pointButton.innerText ="Punkt platzieren";
+    var deleteButton = document.createElement("button");
+    deleteButton.id="Draw";
+    deleteButton.innerText ="Alles Löschen";
+
+    polygonButton.onclick = () =>{
+        handleSelectPolygonMode()
+    };
+    lineButton.onclick = () =>{
+        handleSelectLineMode()
+    };
+    pointButton.onclick = () =>{
+        handleSelectPointMode()
+    };
+    deleteButton.onclick = () =>{
+        handleSelectDeleteMode()
+    };
+    intro.appendChild(polygonButton)
+    intro.appendChild(lineButton)
+    intro.appendChild(pointButton)
+    intro.appendChild(deleteButton)
+
+    function handleSelectPolygonMode () {
+        // toggle button
+        if (drawMode === draw.modes.DRAW_POLYGON) {
+          drawMode = draw.modes.SIMPLE_SELECT;
+        } else {
+          drawMode = draw.modes.DRAW_POLYGON;
+        }
+        draw.changeMode(drawMode);
+    }
+
+    function handleSelectLineMode () {
+        // toggle button
+        if (drawMode === draw.modes.DRAW_LINE_STRING) {
+          drawMode = draw.modes.SIMPLE_SELECT;
+        } else {
+          drawMode = draw.modes.DRAW_LINE_STRING;
+        }
+        draw.changeMode(drawMode);
+    }
+
+    function handleSelectPointMode () {
+        // toggle button
+        if (drawMode === draw.modes.DRAW_POINT) {
+          drawMode = draw.modes.SIMPLE_SELECT;
+        } else {
+          drawMode = draw.modes.DRAW_POINT;
+        }
+        draw.changeMode(drawMode);
+    }
+
+    function handleSelectDeleteMode () {
+        draw.deleteAll()
+    }
+
+}
+
+
+
+
+
+function func5(){
+    info.scrollTop=0;
+    
+    drawnData=draw.getAll();
+    draw.deleteAll()
+
+    console.log(drawnData);
     intro.innerHTML = "Danke für Ihre Teilnahme. Optional können Sie gerne einen Kommentar hinterlassen.";
     buttonSec.remove();
 
@@ -290,13 +409,6 @@ function func(){
      buttonSec.addEventListener('click', func1)
 }
 
-function funcO(){
-    info.scrollTop=0;
-    button.setAttribute('disabled', 'disabled');
-    button.removeEventListener('click', func);
-    button.addEventListener('click', func1);
-    button.innerHTML="Zum nächsten Schritt"
-}
 function func1(){
     info.scrollTop=0;
     var image = document.createElement("img");
@@ -326,7 +438,7 @@ function func1(){
     functionsArray[selectedElements[0]]();
     buttonSec.removeEventListener('click', func1);
 
-    const funcs = [func2, func3, func4];
+    const funcs = [func2, func3, func4, func5];
     let i = 0;
     buttonSec.addEventListener("click", e => {
         funcs[i]();

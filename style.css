@@ -38,6 +38,16 @@ html, body, #map { height: 100%; width:100%; font-family: 'Segoe UI', Tahoma, Ge
     position: absolute;
     height: 100%;
 }
+#Draw{
+    width:auto;
+    height: 50px;
+    background-size: 20px;
+}
+
+#Draw:hover{
+    color: white;
+    background-color: #C4D600;
+}
 
 .infoContainer{
     opacity: 85%;
